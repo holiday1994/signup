@@ -20,9 +20,10 @@ namespace dbtest
         {
             try
             {
-                SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnect"].ConnectionString);
+                SqlConnection con = new SqlConnection("Data Source=fhgamesdatabase.database.windows.net;Initial Catalog=dbconnect;Integrated Security=False;User ID=holiday1994@fhgamesdatabase.database.windows.net;Password=Tonkatoy816037;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
                 con.Open();
-                String insert = "insert into userinfo (username) values (@username)";
+
+                String insert = "insert into dbo.userinfo (username) values (@username)";
 
                 SqlCommand cmd = new SqlCommand(insert, con);
                 cmd.Parameters.AddWithValue("@username", TextBox1.Text);
